@@ -1,0 +1,110 @@
+:root {
+  --text-color: rgba(255, 255, 255, 0.7);
+  --active-color: white;
+  --background-color: #0e0e0e;
+}
+body {
+  background: var(--background-color);
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  max-width: 1224px;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* hero */
+
+header {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 4 / 1;
+  animation: videoColors 20s alternate infinite;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      55deg,
+      hsla(184deg, 94%, 55%, 0.7) 0%,
+      hsla(0deg, 0%, 100%, 0.1) 50%,
+      hsla(295deg, 100%, 50%, 0.7) 100%
+  );
+}
+
+header figure {
+  width: 100%;
+}
+
+header video {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: -1;
+  filter: brightness(120%) contrast(200%);
+  object-fit: cover;
+}
+
+header svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(0, 0, 0, 0.5) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@keyframes videoColors {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(-50deg);
+  }
+}
+
+/* contact section */
+
+section p {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 200;
+  margin-bottom: 0.6rem;
+  color: var(--text-color);
+}
+
+section ul {
+  list-style: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+section a {
+  text-decoration: none;
+  padding: 0.5rem;
+  color: var(--text-color);
+}
+
+section a:hover, section a:focus {
+  color: var(--active-color);
+}
