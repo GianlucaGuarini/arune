@@ -54,7 +54,6 @@ npm-debug.log
 .nyc_output
 coverage
 generated
-/dist
 
 # these files are generated anyway
 .nycrc

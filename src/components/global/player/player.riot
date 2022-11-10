@@ -1,6 +1,6 @@
 <player>
   <audio src="/assets/audio/fx.mp3" loop/>
-  <button class={state.isPlaying ? 'playing' : ''} onclick={toggleAudio} title="Give me some vibes">
+  <button class={state.isPlaying ? 'playing' : ''} onclick={toggleAudio} title={getButtonTitle()}>
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
       <path if={!state.isPlaying} d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z"/>
       <path if={state.isPlaying} d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z"/>
@@ -22,6 +22,9 @@
           this.player.pause()
         }
       },
+      getButtonTitle() {
+        return this.state.isPlaying ? 'Stop this madness' : 'Give me some vibes'
+      },
       toggleAudio() {
         this.update({
           isPlaying: !this.state.isPlaying
@@ -32,7 +35,7 @@
 
   <style>
     :host {
-      position: absolute;
+      position: fixed;
       bottom: 16px;
       right: 16px;
     }
@@ -46,7 +49,7 @@
       justify-content: center;
       background: transparent;
       color: var(--text-color);
-      border: 1px solid var(--text-color);
+      border: 2px solid var(--text-color);
       width: 32px;
       height: 32px;
       border-radius: 100%;
@@ -54,13 +57,14 @@
 
     button:hover, button:focus {
       color: var(--active-color);
+      border-color: var(--active-color);
     }
 
     button::before, button::after {
       content: '';
       position: absolute;
-      top: -1px;
-      left: -1px;
+      top: -2px;
+      left: -2px;
       visibility: hidden;
       display: block;
       width: 32px;
@@ -70,7 +74,7 @@
     }
 
     button::before {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.4);
     }
 
     button::after {
@@ -82,7 +86,7 @@
     }
 
     button.playing::before {
-      animation: buttonAnimation1 ease-in-out 600ms alternate infinite;
+      animation: buttonAnimation1 ease-in-out 300ms alternate infinite;
     }
 
     button.playing::after {
@@ -90,7 +94,6 @@
     }
 
     svg {
-      position: relative;
       width: 28px;
       height: 28px;
       border-radius: 100%;
@@ -102,7 +105,7 @@
         transform: scale(1)
       }
       to {
-        transform: scale(1.1)
+        transform: scale(1.2)
       }
     }
 
