@@ -119,7 +119,7 @@ body {
 
 .payoff {
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin: 0.6rem 0 1.2rem;
   color: var(--active-color);
 }
@@ -127,7 +127,7 @@ body {
 @media screen and (min-width: 768px) {
   .payoff {
     margin: 0 0 1.2rem;
-    font-size: 2rem
+    font-size: 2.2rem
   }
 }
 
